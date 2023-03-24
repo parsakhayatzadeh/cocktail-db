@@ -6,13 +6,11 @@ const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTem] = useState("a");
   const [cocktails, setCocktails] = useState([]);
-
   const fetchCocktails = async () => {
     setLoading(true);
     try {
       const res = await fetch(`${url}${searchTerm}`);
       const data = await res.json();
-      console.log(data);
       const { drinks } = data;
       if (drinks) {
         const newCocktails = drinks.map((item) => {
@@ -26,7 +24,6 @@ const AppProvider = ({ children }) => {
             glass: strGalss,
           };
         });
-        console.log(drinks);
         setLoading(false);
         setCocktails(newCocktails);
       } else {

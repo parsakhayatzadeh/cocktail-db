@@ -12,11 +12,14 @@ const CocktailsList = () => {
     return <h2 className="section-title">no cocktail mached your search</h2>;
   }
   return (
-    <div>
-      {cocktails.map((item) => {
-        return <Cocktail {...item} key={item.id}/>;
-      })}
-    </div>
+    <section className="section">
+      <h2 className="section-title">Cocktails</h2>
+      <div className="cocktails-center">
+        {cocktails.map((item) => {
+          return <Cocktail {...item} key={item.id} />;
+        })}
+      </div>
+    </section>
   );
 };
 

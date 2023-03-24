@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import Navabr from "./Component/Navabr";
 import ErrorPage from "./pages/ErrorPage";
+import SinglePage from "./pages/SinglePage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="*" element={<ErrorPage />} />
+        <Route path="/cocktail/:id" element={<SinglePage/>}/>
       </Routes>
     </div>
   );
