@@ -6,6 +6,7 @@ const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTem] = useState("a");
   const [cocktails, setCocktails] = useState([]);
+
   const fetchCocktails = async () => {
     setLoading(true);
     try {
@@ -35,6 +36,7 @@ const AppProvider = ({ children }) => {
       setLoading(false);
     }
   };
+  
   useEffect(() => {
     fetchCocktails();
   }, [searchTerm]);
