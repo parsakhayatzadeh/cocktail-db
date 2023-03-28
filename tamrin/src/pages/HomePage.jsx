@@ -1,13 +1,12 @@
 import React from "react";
-import CocktailsList from "../Component/CocktailsList";
-import SearchForm from "../Component/SearchForm";
-
+import CocktailsList from "../components/CocktailsList";
+import SeachForm from "../components/SeachForm";
 const HomePage = () => {
   return (
-    <main>
-      <SearchForm />
+    <div>
+      <SeachForm />
       <CocktailsList />
-    </main>
+    </div>
   );
 };
 

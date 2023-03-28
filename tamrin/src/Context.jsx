@@ -3,8 +3,8 @@ const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
 const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
-  const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTem] = useState("a");
+  const [loading, setLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("a");
   const [cocktails, setCocktails] = useState([]);
 
   const fetchCocktails = async () => {
@@ -12,31 +12,30 @@ const AppProvider = ({ children }) => {
     try {
       const res = await fetch(`${url}${searchTerm}`);
       const data = await res.json();
-      const { drinks } = data;
-      if (drinks) {
-        const newCocktails = drinks.map((item) => {
-          const { idDrink, strDrink, strAlcoholic, strDrinkThumb, strGalss } =
+      console.log(data);
+      if (data.drinks) {
+        const newCocktails = data.drinks.map((item) => {
+          const { idDrink, strDrink, strDrinkThumb, strGlass, strAlcoholic } =
             item;
           return {
             id: idDrink,
             name: strDrink,
+            image: strDrinkThumb,
+            glass: strGlass,
             info: strAlcoholic,
-            img: strDrinkThumb,
-            glass: strGalss,
           };
         });
-        setLoading(false);
         setCocktails(newCocktails);
       } else {
         setCocktails([]);
-        setLoading(false);
       }
+      setLoading(false);
     } catch (error) {
       console.log(error);
       setLoading(false);
     }
   };
-  
+
   useEffect(() => {
     fetchCocktails();
   }, [searchTerm]);
@@ -46,7 +45,7 @@ const AppProvider = ({ children }) => {
         loading,
         setLoading,
         searchTerm,
-        setSearchTem,
+        setSearchTerm,
         cocktails,
         setCocktails,
       }}
