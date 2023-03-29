@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className="nav">
       <div className="nav-center">
         <Link to={"/"}>
-          <img src="../../public/logo.svg" alt="log" className="logo" />
+          <img src="http://localhost:5175/public/logo.svg" alt="log" className="logo" />
         </Link>
         <ul className="nav-links">
           <li>

@@ -3,7 +3,7 @@ import { useGlobalContext } from "../Context";
 
 const SeachForm = () => {
   const { setSearchTerm, searchTerm } = useGlobalContext();
-  const searchVal = React.useRef("");
+  const searchVal = React.useRef("a");
   React.useEffect(() => {
     searchVal.current.focus();
   }, []);
